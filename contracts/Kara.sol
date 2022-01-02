@@ -5,17 +5,19 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract KaraNft is Ownable, ERC721 {
+contract Kara is Ownable, ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     using Strings for uint256;
     // Optional mapping for token URIs
     mapping(uint256 => string) private _tokenURIs;
+    // track for item ids ownwer address -> tokenItem
+    mapping(address => uint256) private _tokenItems;
 
     // Base URI
     string private _baseURIextended;
 
-    constructor() public ERC721("karaNft", "KARANFT") {}
+    constructor() public ERC721("kara", "KARANFT") {}
 
     // https://forum.openzeppelin.com/t/function-settokenuri-in-erc721-is-gone-with-pragma-0-8-0/5978/3
     function setBaseURI(string memory baseURI_) external onlyOwner {
@@ -65,11 +67,24 @@ contract KaraNft is Ownable, ERC721 {
     }
 
     function claimItem(string memory tokenURI) public returns (uint256) {
+        require(
+            !_exists(_tokenItems[msg.sender]),
+            "Only one art permitted for each address"
+        );
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _safeMint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
+        _tokenItems[msg.sender] = newItemId;
         return newItemId;
+    }
+
+    function getAccountTokenId() public view returns (uint256) {
+        return _tokenItems[msg.sender];
+    }
+
+    function getTokenId(address addressHash) public view returns (uint256) {
+        return _tokenItems[addressHash];
     }
 
     function totalSupply() public view returns (uint256) {

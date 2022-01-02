@@ -74,10 +74,7 @@ module.exports = {
     // }
     rinkeby: {
       provider: function () {
-        return new HDWalletProvider(
-          mnemonic,
-          "https://rinkeby.infura.io/v3/eb7540abc0304f92be89f37b5d640f59"
-        );
+        return new HDWalletProvider(mnemonic, clientURL);
       },
       network_id: 4, // Rinkeby's id
       gas: 3000000,
@@ -85,6 +82,10 @@ module.exports = {
       timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
       networkCheckTimeout: 10000000,
+      //from: "0xb87452f101403aa837f4E2aebd65AB9c897da534", // Acc 1
+      from: "0x6Bf1Dfaae2b3A0CD0c6F281095214d6B369cd266", // Acc 2
+      //from: "0x25Fd9BD0914A0920de80439B7c1FC7c983A50eF9", // Acc 3
+      //from: "0x75c0a2B556E152e5df223dE13553693FE98Ee412", // Acc 4
     },
     ropsten: {
       provider: () => new HDWalletProvider(mnemonic, clientURL),

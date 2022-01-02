@@ -8,7 +8,7 @@
 
 - 3. Run following command `npx truffle migrate --network rinkeby` and after deployment success, run one by one following inside truffle console. `npx truffe console --network rinkeby`
 
-* let art = await KaraNft.deployed();
+* let art = await Kara.deployed();
 * art.claimItem('https://ipfs.io/ipfs/<METADATA-ID-FROM_IPFS>')
 * example: await kara.claimItem('https://ipfs.io/ipfs/QmUt1E7Me8H6Tz8NmUPs42rPA6g5RSDcCdRRHv9zAJQvgM?filename=IMG-20210328-WA0004.jpg')
 
