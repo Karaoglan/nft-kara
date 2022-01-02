@@ -12,4 +12,6 @@
 * art.claimItem('https://ipfs.io/ipfs/<METADATA-ID-FROM_IPFS>')
 * example: await kara.claimItem('https://ipfs.io/ipfs/QmUt1E7Me8H6Tz8NmUPs42rPA6g5RSDcCdRRHv9zAJQvgM?filename=IMG-20210328-WA0004.jpg')
 
-- 4. Our digital art can be added inside import nft in metamask wallet by contract id and token id (which beginning with 1 and increments 1 by 1 for each item also can be found with claimItem transaction id with command\*\*)
+- 4. Our digital art can be added inside import nft in metamask wallet by contract id and token id (which beginning with 1 and increments 1 by 1 for each item also can be found with claimItem transaction id with command
+     `await art.getTokenId(<ADDRESS_HASH>)`
+     EXAMPLE: `await art.getTokenId("0x25Fd9BD0914A0920de80439B7c1FC7c983A50eF9")`
