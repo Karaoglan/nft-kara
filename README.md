@@ -15,3 +15,7 @@
 - 4. Our digital art can be added inside import nft in metamask wallet by contract id and token id (which beginning with 1 and increments 1 by 1 for each item also can be found with claimItem transaction id with command
      `await art.getTokenId(<ADDRESS_HASH>)`
      EXAMPLE: `await art.getTokenId("0x25Fd9BD0914A0920de80439B7c1FC7c983A50eF9")`
+
+test opensea collectibles:
+https://testnets.opensea.io/0xb87452f101403aa837f4e2aebd65ab9c897da534
+<img width="1779" alt="Screen Shot 2022-03-03 at 09 30 25" src="https://user-images.githubusercontent.com/5943814/156509242-7b2b3aef-07d7-40f8-ab67-3e78b22105f9.png">
